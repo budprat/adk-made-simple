@@ -49,7 +49,7 @@ st.set_page_config(
 )
 
 # Constants
-API_BASE_URL = "http://localhost:8000"
+API_BASE_URL = "http://0.0.0.0:8000"
 APP_NAME = "speaker"
 
 # Initialize session state variables

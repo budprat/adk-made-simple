@@ -10,7 +10,8 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '..', '.en
 
 def create_summarizer_agent():
     # Define a LiteLlm instance for summarization (can adjust model as needed)
-    llm = LiteLlm(model="gemini/gemini-1.5-pro-latest", api_key=os.environ.get("GOOGLE_API_KEY"))
+    tools = [{"googleSearch": {}}] 
+    llm = LiteLlm(model="gemini/gemini-1.5-flash", tools=tools,api_key=os.environ.get("GOOGLE_API_KEY"))
 
     summarizer = Agent(
         name="newscaster_summarizer_agent",
@@ -27,4 +28,4 @@ def create_summarizer_agent():
     return summarizer
 
 # Expose root_agent for ADK
-root_agent = create_summarizer_agent() 
+root_agent = create_summarizer_agent()

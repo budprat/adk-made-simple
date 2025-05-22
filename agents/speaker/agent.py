@@ -25,7 +25,8 @@ async def create_agent():
         print(f"  - Discovered tool: {tool.name}")
 
     # Define LLM for wrapping the tool output if needed
-    llm = LiteLlm(model="gemini/gemini-1.5-flash-latest", api_key=os.environ.get("GOOGLE_API_KEY"))
+   
+    llm = LiteLlm(model="gemini/gemini-1.5-flash",api_key=os.environ.get("GOOGLE_API_KEY"))
 
     # Create the TTS Speaker agent
     # NOTE: These instructions are carefully structured to ensure proper response format
@@ -53,5 +54,3 @@ async def create_agent():
     return agent_instance, exit_stack
 
 root_agent = create_agent()
-
-    

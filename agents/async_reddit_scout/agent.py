@@ -57,7 +57,7 @@ async def create_agent():
     agent_instance = Agent(
         name="async_reddit_scout_agent",
         description="A Reddit scout agent that searches for hot posts in a given subreddit using an external MCP Reddit tool.",
-        model="gemini-1.5-flash-latest", # Ensure API key is in .env
+        model="gemini-1.5-flash", # Ensure API key is in .env
         instruction=(
             "You are the Async Reddit News Scout. Your task is to fetch hot post titles from any subreddit using the connected Reddit MCP tool."
             "1. **Identify Subreddit:** Determine which subreddit the user wants news from. Default to 'gamedev' if none is specified. Use the specific subreddit mentioned (e.g., 'unity3d', 'unrealengine')."
@@ -75,5 +75,3 @@ async def create_agent():
     return agent_instance, exit_stack
 
 root_agent = create_agent()
-
-

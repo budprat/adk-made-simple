@@ -6,3 +6,6 @@ streamlit>=1.31.0
 requests>=2.31.0
 fastapi>=0.100.0
 uvicorn[standard]>=0.20.0 # [standard] includes performance extras
+matplotlib>=3.7.0 # For sentiment visualization 
+pandas>=2.0.0     # For data handling in the dashboard
+numpy>=1.24.0     # For numerical operations

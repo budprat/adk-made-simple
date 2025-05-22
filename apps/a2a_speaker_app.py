@@ -53,8 +53,8 @@ st.set_page_config(
 )
 
 # Constants - Will be updated in later subtasks
-API_BASE_URL = "http://localhost:8003" # Set to A2A agent port
-APP_NAME = "speaker" # Not needed for direct A2A /run calls
+API_BASE_URL = "http://127.0.0.1:8003" # Set to A2A agent port
+APP_NAME = "agents.speaker.agent.py" # Not needed for direct A2A /run calls
 
 # Initialize session state variables
 if "user_id" not in st.session_state:

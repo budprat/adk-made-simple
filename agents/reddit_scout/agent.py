@@ -111,7 +111,7 @@ def get_mock_reddit_gamedev_news(subreddit: str) -> dict[str, list[str]]:
 agent = Agent(
     name="reddit_scout_agent",
     description="A Reddit scout agent that searches for the most relevant posts in a given subreddit",
-    model="gemini-1.5-flash-latest",
+    model="gemini-1.5-flash",
     instruction=(
         "You are the Game Dev News Scout. Your primary task is to fetch and summarize game development news."
         "1. **Identify Intent:** Determine if the user is asking for game development news or related topics."

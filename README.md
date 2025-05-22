@@ -25,6 +25,9 @@ If you find this tutorial series and codebase helpful in your AI agent developme
 
 - **Reddit Scout**: Simulates fetching recent discussion titles from game development subreddits.
 - **Speaker Agent**: Converts text to speech using the ElevenLabs TTS API via an MCP toolset. Can be run via `adk api_server` or as a standalone A2A service.
+- **Sentiment Analyzer**: Analyzes the emotional tone of text content, providing sentiment classification with confidence scores, key emotional markers, and detailed analysis. Available as both an ADK agent and a standalone A2A service.
+- **Summarizer**: Creates concise newscaster-style summaries of content.
+- **Coordinator**: Orchestrates the other agents, allowing them to work together on complex tasks.
 
 ## General Setup
 
@@ -152,13 +155,20 @@ adk-made-simple/
 │   ├── async_reddit_scout/  # Lesson 2: Asynchronous Reddit Scout Agent
 │   │   ├── __init__.py
 │   │   └── agent.py
+│   ├── sentiment_analyzer/  # Sentiment analysis agent
+│   │   ├── __init__.py
+│   │   ├── agent.py
+│   │   ├── __main__.py      # Standalone A2A server
+│   │   └── task_manager.py  # A2A task handling
 │   ├── summarizer/          # Lesson 2: Newscaster Summarizer Agent
 │   │   ├── __init__.py
 │   │   └── agent.py
 │   ├── speaker/             # Lesson 2: Speaker Agent
 │   │   ├── __init__.py
-│   │   └── agent.py
-│   └── coordinator/         # Lesson 2: Coordinator Agent combining sub-agents
+│   │   ├── agent.py
+│   │   ├── __main__.py      # Standalone A2A server
+│   │   └── task_manager.py  # A2A task handling
+│   └── coordinator/         # Coordinator Agent combining sub-agents
 │       ├── __init__.py
 │       └── agent.py
 ├── .env.example             # Environment variables example
@@ -169,8 +179,12 @@ adk-made-simple/
 ├── apps/
 │   ├── speaker_app.py       # Streamlit UI for Speaker (via adk api_server)
 │   ├── a2a_speaker_app.py   # Streamlit UI for Speaker (via standalone A2A)
+│   ├── a2a_sentiment_app.py # Streamlit UI for Sentiment Analyzer
+│   ├── unified_dashboard.py # Integrated dashboard for all agents
 │   └── README.md            # Explanation of the apps
 ├── common/
+│   ├── __init__.py
+│   ├── a2a_client.py        # Client for A2A communication
 │   └── a2a_server.py        # Helper for creating standalone A2A servers
 ├── scripts/
 │   ├── tests/
@@ -181,14 +195,23 @@ adk-made-simple/
 │   └── run_agents.py        # Script to run multiple standalone agents (if needed)
 ```
 
-## Streamlit UI
+## Streamlit UIs
 
-Two Streamlit UIs are provided for the Speaker Agent, demonstrating the two interaction modes:
+Multiple Streamlit UIs are provided for interacting with the agents:
 
-- `apps/speaker_app.py`: Interacts with the agent via the `adk api_server` (Mode 1).
-- `apps/a2a_speaker_app.py`: Interacts directly with the standalone A2A agent service (Mode 2).
+- **Agent-Specific UIs**:
+  - `apps/speaker_app.py`: Interacts with the Speaker agent via the `adk api_server` (Mode 1).
+  - `apps/a2a_speaker_app.py`: Interacts directly with the standalone Speaker A2A agent service (Mode 2).
+  - `apps/a2a_sentiment_app.py`: Interacts with the Sentiment Analyzer agent for analyzing text sentiment.
 
-See the `apps/README.md` for details on running these and their differences.
+- **Unified Dashboard**:
+  - `apps/unified_dashboard.py`: A comprehensive dashboard integrating all agent capabilities in a tabbed interface:
+    - Reddit Content: Browse and fetch posts from various subreddits
+    - Summarization: Generate concise summaries of text content
+    - Sentiment Analysis: Analyze the emotional tone of content with visual feedback
+    - Text-to-Speech: Convert text to spoken audio
+
+See the `apps/README.md` for details on running these applications and their differences.
 
 1. **Ensure Dependencies:**
 

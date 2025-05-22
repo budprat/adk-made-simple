@@ -1,0 +1,8 @@
+{
+  "name": "Sentiment Analyzer",
+  "description": "Analyzes sentiment and emotional tone in text content",
+  "endpoints": [
+    "run"
+  ],
+  "version": "1.0.0"
+}

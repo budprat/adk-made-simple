@@ -16,7 +16,7 @@ async def create_agent():
         connection_params=StdioServerParameters(
             command='uvx',
             args=['elevenlabs-mcp'],
-            env={'ELEVENLABS_API_KEY': os.environ.get('ELEVENLABS_API_KEY', '')}
+            env={'ELEVENLABS_API_KEY': os.environ.get('ELEVENLABS_API_KEY', 'k_b3d4b0ad0afa48b539d30b887d658a698b5431aea829ef5d')}
         )
     )
 
